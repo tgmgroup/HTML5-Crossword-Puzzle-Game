@@ -48,7 +48,7 @@ function Crossword(words_in, clues_in){
         return best_grid;
     }
 
-    // returns an abitrary grid, or null if it can't build one
+    // returns an arbitrary grid, or null if it can't build one
     this.getGrid = function(max_tries){
         for(var tries = 0; tries < max_tries; tries++){
             clear(); // always start with a fresh grid and char_index
@@ -362,7 +362,7 @@ function Crossword(words_in, clues_in){
 }
 
 var CrosswordUtils = {
-    PATH_TO_PNGS_OF_NUMBERS : "numbers/",
+    PATH_TO_PNGS_OF_NUMBERS : "assets/numbers/",
 
     toHtml : function(grid, show_answers){
         if(grid == null) return;

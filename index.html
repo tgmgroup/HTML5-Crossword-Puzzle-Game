@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Accounting Crossword Puzzle</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-		<script src="jquery.js"></script>
+		<title>Crossword Puzzle</title>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		/>
+		<script src="assets/scripts/jquery.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
 		<style>
 			@font-face{
 				font-family: 'Roboto';
-				src: url('Roboto-Regular.ttf');
+				src: url('assets/fonts/Roboto-Regular.ttf');
 			}
-			
+
 			body{
 				font-family: Roboto;
 				padding-top: 50px;
 				padding-bottom: 70px;
 				user-select: none;
 			}
-			
+
 			/* SCROLLBAR STYLING */
 			/* width */
 			::-webkit-scrollbar {
@@ -27,24 +30,24 @@
 			}
 			/* Track */
 			::-webkit-scrollbar-track {
-				background: white; 
+				background: white;
 			}
 			/* Handle */
 			::-webkit-scrollbar-thumb {
-				background: black; 
+				background: black;
 			}
 			/* Handle on hover */
 			::-webkit-scrollbar-thumb:hover {
-				background: #555; 
+				background: #555;
 			}
-			
+
 			#appbar{
 				position: fixed;
 				top: 0;
 				left: 0;
 				right: 0;
-				background-color: #2a797a;
-				color: white; 
+				background-color: #2a3f7a;
+				color: white;
 				z-index: 313;
 				-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
 				-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
@@ -53,13 +56,13 @@
 			.abitem{
 				padding: 20px;
 				display: inline-block;
-				
+
 			}
 			.noad{
 				text-align: center;
 			}
 			.noad button{
-				border: none; 
+				border: none;
 				background-color: blue;
 				color: white;
 				padding: 10px;
@@ -81,7 +84,7 @@
 				-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
 				box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
 			}
-			
+
 			#crossword {
 				text-align:left;
 			}
@@ -103,7 +106,7 @@
 				width:30px;
 				height:30px;
 			}
-			
+
 			.no-border{
 				background-color: black;
 			}
@@ -122,7 +125,7 @@
 				margin: 0 auto;
 				text-align: left:
 			}
-			
+
 			.canswer{
 				display: none;
 			}
@@ -132,7 +135,7 @@
 				padding: 20px;
 				border: none;
 				outline: none;
-				background-color: #2a797a;
+				background-color: #2a3f7a;
 				color: white;
 				margin-top: 5px;
 				margin-bottom: 5px;
@@ -153,10 +156,10 @@
 			.kbtn{
 				padding: 10px;
 				border: 1px solid black;
-				margin: 5px; 
+				margin: 5px;
 				display: inline-block;
 				width: 30px;
-				
+
 			}
 			th{
 				text-align: left;
@@ -167,31 +170,32 @@
 			margin:0;
 			margin-right: 5px;
 			padding:0; }
-			
+
 			#game{
 				margin-bottom: 10px;
 				padding: 10px;
 				display: none;
 			}
-			
+
 			.ditem{
 				padding: 1em;
 				border-bottom: 1px solid black;
 				margin-bottom: 3px;
 			}
-			
+
 			td:hover{
 				background-color: yellow
 			}
 		</style>
-		<script src="crossword.js"></script>
+		<script src="/assets/scripts/crossword.js"></script>
 	</head>
 	<body>
-		
-		<p style="padding: 1em; margin-bottom: 0px;">Challenge your Accounting knowledge by filling this crossword!</p>
-		
+		<p style="padding: 1em; margin-bottom: 0px">
+			Let's practice using our vocabulary!
+		</p>
+
 		<div class="screen" id="game">
-			<div id="ttscontainer" style="overflow: auto; text-align: left;">
+			<div id="ttscontainer" style="overflow: auto; text-align: left">
 				<div id="crossword"></div>
 			</div>
 			<table id="clues">
@@ -208,36 +212,50 @@
 					</tr>
 				</tbody>
 			</table>
-			
-			<button onclick="toggleAnswer()"><i class="fa fa-eye"></i> Show Answers</button>
-			<button onclick="location.reload()"><i class="fa fa-refresh"></i> Another Crossword</button>
-			
+
+			<button onclick="toggleAnswer()">
+				<i class="fa fa-eye"></i> Show Answers
+			</button>
+			<button onclick="location.reload()">
+				<i class="fa fa-refresh"></i> Another Crossword
+			</button>
+
 			<div id="vkeyboard">
 				<h3>Enter Correct Answer</h3>
 				<div id="kbtnlist"></div>
-				<button onclick="$('#vkeyboard').hide()"><i class="fa fa-times"></i> Close</button>
+				<button onclick="$('#vkeyboard').hide()">
+					<i class="fa fa-times"></i> Close
+				</button>
 			</div>
 		</div>
-		
-		
-		
+
 		<div id="appbar">
-			<span class="abitem" onclick="toggledrawer()"><i class="fa fa-bars"></i></span>
-			<span class="abitem" style="padding-left: 0px;">Accounting Crossword</span>
-			<span class="abitem" style="float: right" onclick="toggleAnswer()"><i class="fa fa-eye"></i></span>
+			<span class="abitem" onclick="toggledrawer()"
+				><i class="fa fa-bars"></i
+			></span>
+			<span class="abitem" style="text-align: center; padding-left: 0px"
+				>Crossword Puzzle</span
+			>
+			<span class="abitem" style="float: right" onclick="location.reload()"
+				><i class="fa fa-refresh"></i
+			></span>
+			<span class="abitem" style="float: right" onclick="toggleAnswer()"
+				><i class="fa fa-eye"></i
+			></span>
 		</div>
 		<div id="drawer">
-			<p style="padding: 1em;">Choose how much words in a single game level:</p>
-			<div class="ditem" onclick="setqcount(5)"><i class="fa fa-pencil" style="color: #2a797a"></i> 5 Words</div>
-			<div class="ditem" onclick="setqcount(15)"><i class="fa fa-pencil" style="color: #2a797a"></i> 15 Words</div>
-			<div class="ditem" onclick="setqcount(20)"><i class="fa fa-pencil" style="color: #2a797a"></i> 20 Words</div>
-			<div class="ditem" onclick="setqcount(25)"><i class="fa fa-pencil" style="color: #2a797a"></i> 25 Words</div>
-			<div class="ditem" onclick="setqcount(30)"><i class="fa fa-pencil" style="color: #2a797a"></i> 30 Words</div>
-			<div class="ditem" onclick="setqcount(50)"><i class="fa fa-pencil" style="color: #2a797a"></i> 50 Words</div>
-			
-		</div>		
-		<script src="ttsciihuy.min.js"></script>
+			<p style="padding: 1em">Choose how much words in a single game level:</p>
+			<div class="ditem" onclick="setqcount(15)">
+				<i class="fa fa-pencil" style="color: #2a797a"></i> 15 Words
+			</div>
+			<div class="ditem" onclick="setqcount(10)">
+				<i class="fa fa-pencil" style="color: #2a797a"></i> 10 Words
+			</div>
+			<div class="ditem" onclick="setqcount(5)">
+				<i class="fa fa-pencil" style="color: #2a797a"></i> 5 Words
+			</div>
 
-
+		</div>
+		<script src="clues.js"></script>
 	</body>
 </html>
