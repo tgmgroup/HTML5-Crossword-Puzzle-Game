@@ -7,6 +7,7 @@ This is a mobile-first application, so users must use the virtual keyboard to fi
 For a non-mobile-friendly crossword puzzle game, this project looks interesting: https://github.com/gstasiewicz/crossword
 
 
-The original crossword library used in this project is here: https://github.com/dwmkerr/crosswords-js
+The original crossword library used in this project is from here: https://github.com/dwmkerr/crosswords-js
+There are a few edits for adapting to screen sizes and removing outdated jquery versions.
 
 The original project is here: https://github.com/habibieamrullah/HTML5-Crossword-Puzzle-Game (some extraneous calls to external websites were removed)
