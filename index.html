@@ -15,8 +15,6 @@
 		<script src="assets/scripts/crossword.js"></script>
 	</head>
 	<body>
-
-
 		<div class="screen" id="game">
 			<div id="container">
 				<div id="ttscontainer" style="overflow: auto; text-align: left">
@@ -26,14 +24,14 @@
 					<p style="padding: 1em; margin-bottom: 0px">
 						Let's practice using our vocabulary!
 					</p>
-					<hr class="solid">
-					<table class= "clues" id="clues">
+					<hr class="solid" />
+					<table class="clues" id="clues">
 						<tbody>
 							<tr>
 								<th><b>Across</b></th>
 								<td><ul id="across"></ul></td>
 							</tr>
-							
+
 							<tr>
 								<th><b>Down</b></th>
 								<td><ul id="down"></ul></td>
@@ -42,7 +40,6 @@
 					</table>
 				</div>
 			</div>
-
 
 			<button onclick="toggleAnswer()">
 				<i class="fa fa-eye"></i> Show Answers
@@ -72,6 +69,13 @@
 			></span>
 			<span class="abitem" style="float: right" onclick="toggleAnswer()"
 				><i class="fa fa-eye"></i
+			></span>
+			<span
+				class="abitem"
+				id="themeToggle"
+				style="float: right"
+				onclick="document.documentElement.classList.toggle('dark');"
+				><i class="fa fa-user"></i
 			></span>
 		</div>
 		<div id="drawer">
